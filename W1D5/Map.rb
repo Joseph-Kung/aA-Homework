@@ -33,4 +33,8 @@ class Map
       i += 1
     end
   end
+
+  def show
+    my_map
+  end
 end
