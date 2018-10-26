@@ -16,4 +16,11 @@ class Map
     end
     my_map << [key , value]
   end
+
+  def get(key)
+    my_map.each do |pair|
+      return pair.last if pair.first == key
+    end
+  end
+
 end
