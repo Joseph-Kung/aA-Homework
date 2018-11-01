@@ -37,6 +37,12 @@ def dominant_octopus
   FISH.merge_sort(&prc).first
 end
 
+def dancing_octopus(direction, tiles_array)
+  tiles_array.each_with_index do |tile, idx|
+    return idx if tile == direction
+end
+
+
 class Array
   def merge_sort(&prc)
     prc ||= Proc.new {|x,y| x <=> y}
