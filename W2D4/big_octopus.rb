@@ -10,6 +10,19 @@ FISH = ['fish',
 
 #O(n^2)
 def sluggish_octopus
+  FISH.each_with_index do |fish, i|
+    max = true
+    FISH.each_with_index do |fish2, i2|
+      next if i == i2
+      max = false if fish2.length > fish.length
+    end
+
+    return fish if max == true
+  end
+end
+
+#O(n)
+def clever_octopus
   longest = ''
 
   FISH.each do |fish|
