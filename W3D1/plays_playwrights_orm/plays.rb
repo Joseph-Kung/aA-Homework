@@ -72,6 +72,7 @@ class Play
     SQL
 
     play.map {|play| Play.new(play)}
+  end
 end
 
 
@@ -94,3 +95,22 @@ class Playwright
     return nil if person.empty?
     Playwright.new(person.first)
   end
+
+  def initialize(options)
+    @id = options['id']
+    @name = options['name']
+    @birth_year = options['birth_year']
+  end
+
+  def insert
+    raise "#{self} already in database" if self.id
+
+    PlayDBConnection.instance.execute(<<-SQL, self.name, self.birth_year)
+      INSERT INTO playwright(name, birth_year)
+      VALUES (?, ?)
+    SQL
+
+    self.id = PlayDBConnection.instance.last_insert_row_id
+  end
+
+end
