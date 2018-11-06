@@ -48,4 +48,16 @@ class Play
         id = ?
     SQL
   end
+
+  def find_by_title(title)
+    play = PlayDBConnection.instance.execute(<<-SQL, title)
+      SELECT *
+      FROM plays
+      WHERE title = ?
+    SQL
+
+    return nil if play.empty?
+
+    Play.new(play.first)
+  end
 end
