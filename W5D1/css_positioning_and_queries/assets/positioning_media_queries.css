@@ -139,7 +139,6 @@ label {
     box-shadow: black 5px 5px 10px;
   }
 
-  /* This is how we make pure css dropdowns! */
   .hamburger-dropdown:hover ul {
     display: flex;
     background: ghostwhite;
