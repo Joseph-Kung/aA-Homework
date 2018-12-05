@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchSearchGiphys = fetchSearchGiphys;
     window.receiveSearchGiphys = receiveSearchGiphys;
     const root = document.getElementById('root');
-    // ReactDOM.render(<Root />, root);
+    ReactDOM.render(<Root store={store}/>, root);
 })
